@@ -6,7 +6,7 @@ import Layout from 'components/Layout';
 const NotFoundRoute = ({ data }) => (
   <Layout>
     <div>
-      <Sidebar siteMetadata={data} />
+      <Sidebar data={data} />
       <div className="content">
         <div className="content__inner">
           <div className="page">
