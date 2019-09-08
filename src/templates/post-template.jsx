@@ -1,31 +1,35 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import PostTemplateDetails from '../components/PostTemplateDetails'
+import React from 'react';
+import Helmet from 'react-helmet';
+import { graphql } from 'gatsby';
+import Layout from '../components/Layout';
+import PostTemplateDetails from '../components/PostTemplateDetails';
 
-class PostTemplate extends React.Component {
-  render() {
-    const { title, subtitle } = this.props.data.site.siteMetadata
-    const post = this.props.data.markdownRemark
-    const { title: postTitle, description: postDescription } = post.frontmatter
-    const description = postDescription !== null ? postDescription : subtitle
+function PostTemplate({
+  data: {
+    site: {
+      siteMetadata: { title, subtitle },
+    },
+    markdownRemark: post,
+  },
+  data,
+}) {
+  const { title: postTitle, description: postDescription } = post.frontmatter;
+  const description = postDescription !== null ? postDescription : subtitle;
 
-    return (
-      <Layout>
-        <div>
-          <Helmet>
-            <title>{`${postTitle} - ${title}`}</title>
-            <meta name="description" content={description} />
-          </Helmet>
-          <PostTemplateDetails {...this.props} />
-        </div>
-      </Layout>
-    )
-  }
+  return (
+    <Layout>
+      <div>
+        <Helmet>
+          <title>{`${postTitle} - ${title}`}</title>
+          <meta name="description" content={description} />
+        </Helmet>
+        <PostTemplateDetails data={data} />
+      </div>
+    </Layout>
+  );
 }
 
-export default PostTemplate
+export default PostTemplate;
 
 export const pageQuery = graphql`
   query PostBySlug($slug: String!) {
@@ -57,4 +61,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

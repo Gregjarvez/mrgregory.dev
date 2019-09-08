@@ -1,27 +1,41 @@
 {
   "parser": "babel-eslint",
   "extends": ["prettier", "airbnb"],
-  "plugins": ["import", "jsx-a11y", "react"],
+  "plugins": ["import", "jsx-a11y", "react", "prettier"],
   "globals": {
     "graphql": true
   },
   "rules": {
-    "arrow-body-style": [
-      "error",
-      "as-needed",
-      { "requireReturnForObjectLiteral": true }
-    ],
+    "prettier/prettier": "error",
     "arrow-parens": ["error", "as-needed"],
     "comma-dangle": ["error", "always-multiline"],
+    "object-curly-newline": "off",
     "function-paren-newline": "off",
     "no-console": "off",
     "prefer-destructuring": "off",
-    "semi": ["error", "never"],
+    "semi": "error",
     "import/extensions": "off",
     "import/no-extraneous-dependencies": "off",
+    "react/destructuring-assignment": "off",
     "jsx-a11y/anchor-is-valid": "off",
     "react/jsx-filename-extension": "off",
     "react/prefer-stateless-function": "off",
-    "react/prop-types": "off"
+    "implicit-arrow-linebreak": "off",
+    "react/no-danger": "off",
+    "react/prop-types": "off",
+    "operator-linebreak": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["components", "./src/components"],
+          ["assets", "./src/assets"]
+        ],
+        "extensions": [
+          ".jsx", "js", ".json"
+        ]
+      }
+    }
   }
 }

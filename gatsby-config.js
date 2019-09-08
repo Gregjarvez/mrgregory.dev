@@ -1,17 +1,17 @@
-const lost = require('lost')
-const pxtorem = require('postcss-pxtorem')
+const lost = require('lost');
+const pxtorem = require('postcss-pxtorem');
 
-const url = 'https://lumen.netlify.com'
+const url = 'https://mrgregory.dev';
 
 module.exports = {
   siteMetadata: {
     url,
     siteUrl: url,
-    title: 'Blog by John Doe',
+    title: 'Blog by Mr Gregory',
     subtitle:
-      'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
+      'Peronal blog by Gregory Assasie. Simple explanations for seemingly complex concepts. 💯',
     copyright: '© All rights reserved.',
-    disqusShortname: '',
+    disqusShortname: 'Leave a comment',
     menu: [
       {
         label: 'Articles',
@@ -21,19 +21,13 @@ module.exports = {
         label: 'About me',
         path: '/about/',
       },
-      {
-        label: 'Contact me',
-        path: '/contact/',
-      },
     ],
     author: {
-      name: 'John Doe',
-      email: '#',
-      telegram: '#',
-      twitter: '#',
-      github: '#',
+      name: 'Gregory Assasie',
+      email: 'mailto:gregjarvez@gmail.com',
+      twitter: 'https://twitter.com/gregory_jarvez',
+      github: 'https://github.com/Gregjarvez',
       rss: '#',
-      vk: '#',
     },
   },
   plugins: [
@@ -61,15 +55,14 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMarkdownRemark } }) =>
-              allMarkdownRemark.edges.map(edge =>
-                Object.assign({}, edge.node.frontmatter, {
-                  description: edge.node.frontmatter.description,
-                  date: edge.node.frontmatter.date,
-                  url: site.siteMetadata.url + edge.node.fields.slug,
-                  guid: site.siteMetadata.url + edge.node.fields.slug,
-                  custom_elements: [{ 'content:encoded': edge.node.html }],
-                })
-              ),
+              allMarkdownRemark.edges.map(edge => ({
+                ...edge.node.frontmatter,
+                description: edge.node.frontmatter.description,
+                date: edge.node.frontmatter.date,
+                url: site.siteMetadata.url + edge.node.fields.slug,
+                guid: site.siteMetadata.url + edge.node.fields.slug,
+                custom_elements: [{ 'content:encoded': edge.node.html }],
+              })),
             query: `
               {
                 allMarkdownRemark(
@@ -96,6 +89,7 @@ module.exports = {
               }
             `,
             output: '/rss.xml',
+            title: 'Blog by Mr Gregory',
           },
         ],
       },
@@ -124,7 +118,7 @@ module.exports = {
     'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-plugin-google-analytics',
-      options: { trackingId: 'UA-73379983-2' },
+      options: { trackingId: 'UA-83658810-1' },
     },
     {
       resolve: 'gatsby-plugin-google-fonts',
@@ -172,5 +166,16 @@ module.exports = {
         precision: 8,
       },
     },
+    {
+      resolve: 'gatsby-plugin-module-resolver',
+      options: {
+        root: './src',
+        aliases: {
+          pages: './pages',
+          assets: './assets',
+          components: './components',
+        },
+      },
+    },
   ],
-}
+};

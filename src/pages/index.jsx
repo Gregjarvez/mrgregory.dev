@@ -1,37 +1,41 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import Post from '../components/Post'
-import Sidebar from '../components/Sidebar'
+import React from 'react';
+import Helmet from 'react-helmet';
+import { graphql } from 'gatsby';
 
-class IndexRoute extends React.Component {
-  render() {
-    const items = []
-    const { title, subtitle } = this.props.data.site.siteMetadata
-    const posts = this.props.data.allMarkdownRemark.edges
-    posts.forEach(post => {
-      items.push(<Post data={post} key={post.node.fields.slug} />)
-    })
+import Post from 'components/Post';
+import Layout from 'components/Layout';
+import Sidebar from 'components/Sidebar';
 
-    return (
-      <Layout>
-        <div>
-          <Helmet>
-            <title>{title}</title>
-            <meta name="description" content={subtitle} />
-          </Helmet>
-          <Sidebar {...this.props} />
-          <div className="content">
-            <div className="content__inner">{items}</div>
+function IndexRoute({
+  data: {
+    allMarkdownRemark: { edges: posts },
+    site: {
+      siteMetadata: { title, subtitle },
+    },
+  },
+  data,
+}) {
+  return (
+    <Layout>
+      <div>
+        <Helmet>
+          <title>{title}</title>
+          <meta name="description" content={subtitle} />
+        </Helmet>
+        <Sidebar data={data} />
+        <div className="content">
+          <div className="content__inner">
+            {posts.map(post => (
+              <Post data={post} key={post.node.fields.slug} />
+            ))}
           </div>
         </div>
-      </Layout>
-    )
-  }
+      </div>
+    </Layout>
+  );
 }
 
-export default IndexRoute
+export default IndexRoute;
 
 export const pageQuery = graphql`
   query IndexQuery {
@@ -47,11 +51,9 @@ export const pageQuery = graphql`
         author {
           name
           email
-          telegram
           twitter
           github
           rss
-          vk
         }
       }
     }
@@ -76,4 +78,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

@@ -1,72 +1,27 @@
-import React from 'react'
-import './style.scss'
-import '../../assets/fonts/fontello-771c82e0/css/fontello.css'
+import React from 'react';
 
-class Links extends React.Component {
-  render() {
-    const author = this.props.data
-    const links = {
-      telegram: author.telegram,
-      twitter: author.twitter,
-      github: author.github,
-      vk: author.vk,
-      rss: author.rss,
-      email: author.email,
-    }
+import './style.scss';
+import 'assets/fonts/fontello-771c82e0/css/fontello.css';
 
-    return (
-      <div className="links">
-        <ul className="links__list">
-          <li className="links__list-item">
-            <a
-              href={`https://www.twitter.com/${links.twitter}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="icon-twitter" />
-            </a>
-          </li>
-          <li className="links__list-item">
-            <a
-              href={`https://www.github.com/${links.github}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="icon-github" />
-            </a>
-          </li>
-          <li className="links__list-item">
-            <a
-              href={`https://www.vk.com/${links.vk}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="icon-vkontakte" />
-            </a>
-          </li>
-        </ul>
-        <ul className="links__list">
-          <li className="links__list-item">
-            <a href={`mailto:${links.email}`}>
-              <i className="icon-mail" />
-            </a>
-          </li>
-          <li className="links__list-item">
-            <a href={`telegram:${links.telegram}`}>
-              <i className="icon-paper-plane" />
-            </a>
-          </li>
-        </ul>
-        <ul className="links__list">
-          <li className="links__list-item">
-            <a href={links.rss}>
-              <i className="icon-rss" />
-            </a>
-          </li>
-        </ul>
-      </div>
-    )
-  }
+function SocialListAnchor({ href, icon }) {
+  return (
+    <li className="links__list-item">
+      <a target="_blank" rel="noopener noreferrer" href={href}>
+        <i className={icon} />
+      </a>
+    </li>
+  );
 }
 
-export default Links
+const Links = ({ data: author }) => (
+  <div className="links">
+    <ul className="links__list">
+      <SocialListAnchor href={author.email} icon="icon-mail" />
+      <SocialListAnchor icon="icon-github" href={author.github} />
+      <SocialListAnchor icon="icon-twitter" href={author.twitter} />
+      <SocialListAnchor icon="icon-rss" href={author.rss} />
+    </ul>
+  </div>
+);
+
+export default Links;

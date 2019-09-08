@@ -1,28 +1,26 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import Sidebar from '../components/Sidebar'
-import TagTemplateDetails from '../components/TagTemplateDetails'
+import React from 'react';
+import Helmet from 'react-helmet';
+import { graphql } from 'gatsby';
+import Layout from '../components/Layout';
+import Sidebar from '../components/Sidebar';
+import TagTemplateDetails from '../components/TagTemplateDetails';
 
-class TagTemplate extends React.Component {
-  render() {
-    const { title } = this.props.data.site.siteMetadata
-    const { tag } = this.props.pageContext
+function TagTemplate(props) {
+  const { tag } = props.pageContext;
+  const { title } = props.data.site.siteMetadata;
 
-    return (
-      <Layout>
-        <div>
-          <Helmet title={`All Posts tagged as "${tag}" - ${title}`} />
-          <Sidebar {...this.props} />
-          <TagTemplateDetails {...this.props} />
-        </div>
-      </Layout>
-    )
-  }
+  return (
+    <Layout>
+      <div>
+        <Helmet title={`All Posts tagged as "${tag}" - ${title}`} />
+        <Sidebar data={props.data} />
+        <TagTemplateDetails data={props.data} />
+      </div>
+    </Layout>
+  );
 }
 
-export default TagTemplate
+export default TagTemplate;
 
 export const pageQuery = graphql`
   query TagPage($tag: String) {
@@ -38,11 +36,9 @@ export const pageQuery = graphql`
         author {
           name
           email
-          telegram
           twitter
           github
           rss
-          vk
         }
       }
     }
@@ -73,4 +69,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

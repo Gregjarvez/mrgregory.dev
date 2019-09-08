@@ -1,28 +1,26 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import Sidebar from '../components/Sidebar'
-import CategoryTemplateDetails from '../components/CategoryTemplateDetails'
+import React from 'react';
+import Helmet from 'react-helmet';
+import { graphql } from 'gatsby';
 
-class CategoryTemplate extends React.Component {
-  render() {
-    const { title } = this.props.data.site.siteMetadata
-    const { category } = this.props.pageContext
+import Layout from 'components/Layout';
+import Sidebar from 'components/Sidebar';
+import CategoryTemplateDetails from 'components/CategoryTemplateDetails';
 
-    return (
-      <Layout>
-        <div>
-          <Helmet title={`${category} - ${title}`} />
-          <Sidebar {...this.props} />
-          <CategoryTemplateDetails {...this.props} />
-        </div>
-      </Layout>
-    )
-  }
+function CategoryTemplate({ data, pageContext }) {
+  const { title } = data.site.siteMetadata;
+
+  return (
+    <Layout>
+      <div>
+        <Helmet title={`${pageContext.category} - ${title}`} />
+        <Sidebar data={data} />
+        <CategoryTemplateDetails data={data} pageContext={pageContext} />
+      </div>
+    </Layout>
+  );
 }
 
-export default CategoryTemplate
+export default CategoryTemplate;
 
 export const pageQuery = graphql`
   query CategoryPage($category: String) {
@@ -38,11 +36,9 @@ export const pageQuery = graphql`
         author {
           name
           email
-          telegram
           twitter
           github
           rss
-          vk
         }
       }
     }
@@ -73,4 +69,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

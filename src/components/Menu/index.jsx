@@ -1,29 +1,24 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import './style.scss'
+import React from 'react';
+import { Link } from 'gatsby';
 
-class Menu extends React.Component {
-  render() {
-    const menu = this.props.data
+import './style.scss';
 
-    const menuBlock = (
-      <ul className="menu__list">
-        {menu.map(item => (
-          <li className="menu__list-item" key={item.path}>
-            <Link
-              to={item.path}
-              className="menu__list-item-link"
-              activeClassName="menu__list-item-link menu__list-item-link--active"
-            >
-              {item.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    )
+const Menu = ({ data: menu }) => (
+  <nav className="menu">
+    <ul className="menu__list">
+      {menu.map(item => (
+        <li className="menu__list-item" key={item.path}>
+          <Link
+            to={item.path}
+            className="menu__list-item-link"
+            activeClassName="menu__list-item-link menu__list-item-link--active"
+          >
+            {item.label}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  </nav>
+);
 
-    return <nav className="menu">{menuBlock}</nav>
-  }
-}
-
-export default Menu
+export default Menu;
