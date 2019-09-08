@@ -14,7 +14,7 @@ function TagTemplate(props) {
       <div>
         <Helmet title={`All Posts tagged as "${tag}" - ${title}`} />
         <Sidebar data={props.data} />
-        <TagTemplateDetails data={props.data} />
+        <TagTemplateDetails data={props.data} pageContext={props.pageContext} />
       </div>
     </Layout>
   );
