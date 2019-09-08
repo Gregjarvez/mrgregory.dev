@@ -11,7 +11,7 @@ module.exports = {
     subtitle:
       'Peronal blog by Gregory Assasie. Simple explanations for seemingly complex concepts. 💯',
     copyright: '© All rights reserved.',
-    disqusShortname: 'Leave a comment',
+    disqusShortname: 'mrgregory',
     menu: [
       {
         label: 'Articles',

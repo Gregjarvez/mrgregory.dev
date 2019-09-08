@@ -1,7 +1,7 @@
 {
-  "version": "3.0.0",
-  "name": "gatsby-v2-starter-lumen",
-  "description": "Simple starter for Gatsby",
+  "version": "1.0.0",
+  "name": "Blogy",
+  "description": "Personal blog post website documenting interesting daily findings",
   "main": "n/a",
   "scripts": {
     "develop": "gatsby develop",
@@ -12,15 +12,16 @@
     "format": "prettier --write './*.js' 'src/**/*.js' 'src/**/*.jsx'",
     "deploy": "gatsby build --prefix-paths"
   },
-  "repository": "git+https://github.com/alxshelepenok/gatsby-starter-lumen.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Gregjarvez/mrgregory.dev.git"
+  },
   "keywords": [
     "gatsby",
     "blog",
-    "react",
-    "theme",
-    "starter"
+    "react"
   ],
-  "author": "Alexander Shelepenok <alxshelepenok@gmail.com>",
+  "author": "Gregory Assasie <gregjarvez@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "bluebird": "^3.5.5",
