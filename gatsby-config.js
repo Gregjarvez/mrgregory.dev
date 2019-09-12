@@ -7,7 +7,9 @@ module.exports = {
   siteMetadata: {
     url,
     siteUrl: url,
-    title: 'Blog by Mr Gregory',
+    description:
+      'I’m Gregory Assasie, a self-taught software developer, from United Kingdom.',
+    title: 'Blog by Gregory Assasie',
     subtitle:
       'Peronal blog by Gregory Assasie. Simple explanations for seemingly complex concepts. 💯',
     copyright: '© All rights reserved.',
@@ -24,6 +26,7 @@ module.exports = {
     ],
     author: {
       name: 'Gregory Assasie',
+      twitterUserName: '@gregory_jarvez',
       email: 'mailto:gregjarvez@gmail.com',
       twitter: 'https://twitter.com/gregory_jarvez',
       github: 'https://github.com/Gregjarvez',

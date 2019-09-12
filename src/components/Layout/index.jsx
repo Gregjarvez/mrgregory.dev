@@ -1,12 +1,12 @@
 import React from 'react';
-import Helmet from 'react-helmet';
 
+import SEO from 'components/Seo';
 import 'assets/scss/init.scss';
 
 function Layout({ children }) {
   return (
     <div className="layout">
-      <Helmet defaultTitle="Blog by Mr Gregory" />
+      <SEO />
       {children}
     </div>
   );

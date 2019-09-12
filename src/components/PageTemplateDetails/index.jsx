@@ -1,4 +1,5 @@
 import React from 'react';
+import SEO from 'components/Seo';
 import Sidebar from 'components/Sidebar';
 
 import './style.scss';
@@ -6,6 +7,10 @@ import './style.scss';
 function PageTemplateDetails({ data: { markdownRemark: page }, data }) {
   return (
     <div>
+      <SEO
+        title={page.frontmatter.title}
+        description={page.frontmatter.description}
+      />
       <Sidebar data={data} />
       <div className="content">
         <div className="content__inner">
