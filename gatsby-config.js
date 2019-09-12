@@ -26,7 +26,7 @@ module.exports = {
     ],
     author: {
       name: 'Gregory Assasie',
-      twitterUserName: '@gregory_jarvez',
+      twitterUserName: 'gregory_jarvez',
       email: 'mailto:gregjarvez@gmail.com',
       twitter: 'https://twitter.com/gregory_jarvez',
       github: 'https://github.com/Gregjarvez',
