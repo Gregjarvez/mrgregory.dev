@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import SEO from 'components/Seo';
 import Disqus from 'components/Disqus/Disqus';
 
 import './style.scss';
@@ -18,7 +17,6 @@ function PostTemplateDetails({
 
   return (
     <div>
-      <SEO title={post.frontmatter.title} />
       <Link className="post-single__home-button" to="/">
         All Articles
       </Link>

@@ -1,9 +1,9 @@
 import React from 'react';
-import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 
 import Layout from 'components/Layout';
 import PageTemplateDetails from 'components/PageTemplateDetails';
+import SEO from 'components/Seo';
 
 function PageTemplate({
   data: {
@@ -21,10 +21,7 @@ function PageTemplate({
   return (
     <Layout>
       <div>
-        <Helmet>
-          <title>{`${pageTitle} - ${title}`}</title>
-          <meta name="description" content={description} />
-        </Helmet>
+        <SEO title={`${pageTitle} - ${title}`} description={description} />
         <PageTemplateDetails data={data} />
       </div>
     </Layout>

@@ -1,6 +1,6 @@
 import React from 'react';
-import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
+import SEO from 'components/Seo';
 import Layout from '../components/Layout';
 import PostTemplateDetails from '../components/PostTemplateDetails';
 
@@ -19,10 +19,7 @@ function PostTemplate({
   return (
     <Layout>
       <div>
-        <Helmet>
-          <title>{`${postTitle} - ${title}`}</title>
-          <meta name="description" content={description} />
-        </Helmet>
+        <SEO title={`${postTitle} - ${title}`} description={description} />
         <PostTemplateDetails data={data} />
       </div>
     </Layout>

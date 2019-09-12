@@ -1,7 +1,7 @@
 import React from 'react';
-import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 
+import SEO from 'components/Seo';
 import Layout from 'components/Layout';
 import Sidebar from 'components/Sidebar';
 import CategoryTemplateDetails from 'components/CategoryTemplateDetails';
@@ -12,7 +12,7 @@ function CategoryTemplate({ data, pageContext }) {
   return (
     <Layout>
       <div>
-        <Helmet title={`${pageContext.category} - ${title}`} />
+        <SEO title={`${pageContext.category} - ${title}`} />
         <Sidebar data={data} />
         <CategoryTemplateDetails data={data} pageContext={pageContext} />
       </div>

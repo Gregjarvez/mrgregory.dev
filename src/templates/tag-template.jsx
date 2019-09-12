@@ -1,9 +1,9 @@
 import React from 'react';
-import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
-import Layout from '../components/Layout';
-import Sidebar from '../components/Sidebar';
-import TagTemplateDetails from '../components/TagTemplateDetails';
+import SEO from 'components/Seo';
+import Layout from 'components/Layout';
+import Sidebar from 'components/Sidebar';
+import TagTemplateDetails from 'components/TagTemplateDetails';
 
 function TagTemplate(props) {
   const { tag } = props.pageContext;
@@ -12,7 +12,7 @@ function TagTemplate(props) {
   return (
     <Layout>
       <div>
-        <Helmet title={`All Posts tagged as "${tag}" - ${title}`} />
+        <SEO title={`All Posts tagged as "${tag}" - ${title}`} />
         <Sidebar data={props.data} />
         <TagTemplateDetails data={props.data} pageContext={props.pageContext} />
       </div>
