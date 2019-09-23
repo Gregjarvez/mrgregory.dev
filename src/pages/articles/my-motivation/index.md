@@ -19,21 +19,21 @@ before publication. The entire process was fascinating. The sheer thought that t
 to help someone immensely one way or another enticed me so much I wanted to try it. Aside the popular saying **"just do it"**, here are my top reasons for starting a blog.
 
 ### Knowledge sharing
-This had to be first, of course.One of the best parts of software development is the plethora of information
+This had to be first, of course. One of the best parts of software development is the plethora of information
 made available by communities for free. When I began my journey as a software developer. It intrigued me
 how quickly I found solutions to problems on various subjects on [discord](https://discordapp.com/), 
-blogs a google search away, and you guessed it [stackOverflow](https://stackoverflow.com/) to name  a few. I think I owe it to a piece of this
-large community and people who have just begun to share what I have learnt over the years.
+blogs a google search away, and you guessed it [stackOverflow](https://stackoverflow.com/) to name  a few. It is fair to say I owe it to a 
+piece of this large community and to people who have just begun to share what I have learnt over the years.
 
 ### Staying up-to-date/Keeping informed
 The Software development industry is constantly undergoing metamorphosis. Isn't this amazing !. Reason being, 
-you can often learn from paradigms, idea and initiatives embedded in emerging software/tools. There is the "downside" 
+you can often learn from paradigms, idea and initiatives embedded in emerging software. There is the "downside" 
 especially known in frontend web development. "Too much to learn ?", **Just-in-time learning** is a simple
-approach that has worked wonders for me 😛. Content creation is a great way to stay informed. It involves a considerable amount of research, 
-validation and exposure to a wide range of subjects.
+approach that has worked wonders for me 😛. I think content creation is a great way to stay informed. It involves a considerable amount 
+of research, validation and exposure to a wide range of subjects.
 
 ### Portfolio
-A portfolio can be a great way to show potential employers and or clients what you do. For a developer, a portfolio usually
+A portfolio can be a great way to show potential employers and or clients what you do. For a developer, it usually
 takes the form of a website showcasing your best work. However, I cannot attribute being a developer now to the fact 
 that I had a pretty portfolio showcasing things I'd built in the past, pun intended. I had my first development job because someone
 decided to take a chance in my uncertain abilities 😅 coupled with small contributions to the open source
@@ -52,5 +52,5 @@ this journey together, sharing the wealth of knowledge we have ascertained.
 <hr>
 
 Well folks, there we go. Some of the things that have motivated me to make this publication. This is the first publication of this kind I have 
-done If you find a language construct that can be improved, please feel free to open an issue or create PR 
+done If you find any language construct that can be improved, please feel free to open an issue or create PR 
 [here](https://github.com/Gregjarvez/mrgregory.dev). Until next time stay vigilant and keep learning one byte at a time.
