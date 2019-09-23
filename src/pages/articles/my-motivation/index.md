@@ -16,8 +16,7 @@ tags:
 
 A few months past, I had the opportunity to proofread a [great friend's article](https://pawelgrzybek.com/)
 before publication. The entire process was fascinating. The sheer thought that this piece of writing was going 
-to help someone immensely one way or another enticed me so much I wanted to try it. Here are a
- few specific reasons why I want to do this.
+to help someone immensely one way or another enticed me so much I wanted to try it. Aside the popular saying **"just do it"**, here are my top reasons for starting a blog.
 
 ### Knowledge sharing
 This had to be first, of course.One of the best parts of software development is the plethora of information
