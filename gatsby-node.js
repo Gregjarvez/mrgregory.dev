@@ -96,17 +96,22 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
   if (node.internal.type === 'File') {
     const parsedFilePath = path.parse(node.absolutePath);
-    const slug = `/${parsedFilePath.dir.split('---')[1]}/`;
-    createNodeField({ node, name: 'slug', value: slug });
-  } else if (
+    const slug = `/${_.last(parsedFilePath.dir.split(path.sep))}/`;
+
+    return createNodeField({ node, name: 'slug', value: slug });
+  }
+
+  if (
     node.internal.type === 'MarkdownRemark' &&
     typeof node.slug === 'undefined'
   ) {
     const fileNode = getNode(node.parent);
     let slug = fileNode.fields.slug;
+
     if (typeof node.frontmatter.path !== 'undefined') {
       slug = node.frontmatter.path;
     }
+
     createNodeField({
       node,
       name: 'slug',

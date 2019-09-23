@@ -17,9 +17,3 @@ For those I am unfamiliar with, Godspeed ⚡️ !.
 
 I contribute to open source projects in my spare time and currently a collaborator to the `react-native-elements` library.
 Outside of that, I love fidgeting with game consoles for balance sake 🕹.
-
-![Gregory Assasie](./image.jpg)
-
-
-
-
