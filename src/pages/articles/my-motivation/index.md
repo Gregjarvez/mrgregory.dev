@@ -22,7 +22,7 @@ to help someone immensely one way or another enticed me so much I wanted to try 
 This had to be first, of course. One of the best parts of software development is the plethora of information
 made available by communities for free. When I began my journey as a software developer. It intrigued me
 how quickly I found solutions to problems on various subjects on [discord](https://discordapp.com/), 
-blogs a google search away, and you guessed it [stackOverflow](https://stackoverflow.com/) to name  a few. It is fair to say I owe it to a 
+blogs a google search away, and you guessed it [stack overflow](https://stackoverflow.com/) to name  a few. It is fair to say I owe it to a 
 piece of this large community and to people who have just begun to share what I have learnt over the years.
 
 ### Staying up-to-date/Keeping informed
