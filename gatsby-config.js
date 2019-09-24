@@ -11,7 +11,7 @@ module.exports = {
       'I’m Gregory Assasie, a self-taught software developer, from United Kingdom.',
     title: 'Blog by Gregory Assasie',
     subtitle:
-      'Peronal blog by Gregory Assasie. Simple explanations for seemingly complex concepts. 💯',
+      'Personal blog by Gregory Assasie. Simple explanations for seemingly complex concepts. 💯',
     copyright: '© All rights reserved.',
     disqusShortname: 'mrgregory',
     menu: [
