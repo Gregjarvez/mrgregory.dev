@@ -3,7 +3,7 @@ title: My motivation
 date: "2019-09-22T09:29:27.351Z"
 layout: post
 draft: false
-category: "Personal"
+category: "Personal Growth"
 path: "/posts/my-motivation/"
 description: "A summary of what motivated me to start software development and motivates me to this date."
 tags:
