@@ -5,11 +5,14 @@ layout: post
 draft: false
 category: "Software development"
 path: "/posts/extended-backus-naur-form/"
-description: "Exploring the Extended Backus-Naur Form, a meta syntax notation."
+description: "Extended Backus-Naur Form, a meta syntax notation."
 tags:
   - "Software development"
   - "Computer Science"
 ---
+
+_This article will introduce you to context-free grammar, how it expresses a programming language specification in human readable form, and how GoLang 
+presents complex language features with simple grammar constructs relative to the ECMA-262. This article will not teach you entire metasyntax but merely exposes you the idea of production rules._
 
 If you have ever visited the [ECMAScript language specification](https://www.ecma-international.org) (aka. the JavaScript specification, or ECMA-262).
 You probably wondered what the heck is going on if you're an average javascript developer like me 😄. It is an excellent resource for learning the
