@@ -30,7 +30,7 @@ How ? [**EBNF**](https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form
 [BNF](https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form). _For the pharmacist out there, no it is not the British National Formulary_. I digress.
 **EBNF** expresses grammar as a series of terminal and non-terminal symbols that are link either by sequencing or choice. Think of terminal symbols as `alphabets`, and `punctuation marks`, 
 whereas a phrase constitutes a non-terminal symbol which can be further broken down into terminal symbols.
-Want to explore the world of production rules and context-free grammar ? [start here](https://en.wikipedia.org/wiki/Context-free_grammar)
+Want to explore the world of production rules and context-free grammar ? [start here](https://en.wikipedia.org/wiki/Context-free_grammar).
 
 Okay, enough theory, what does **EBNF** production rules look like ? Take this basic example 
 
@@ -74,8 +74,9 @@ IterationStatement:
     for(LexicalDeclarationExpressionopt;Expressionopt)Statement
 ``` 
 
-The context-free grammar ECMA uses, arguably makes the language specification very difficult to read and unwelcoming to first-timers. If you're interested in learning about the
-notational convention for the ECMAScript specification document [click here](https://www.ecma-international.org/ecma-262/10.0/index.html#sec-notational-conventions).
+The context-free grammar ECMA uses, arguably makes the language specification very difficult to read and unwelcoming to first-timers. But a short study of the notation will improve your edge on 
+ on grasping the document. If you're interested in learning about the notational convention for the ECMAScript specification document 
+[click here](https://www.ecma-international.org/ecma-262/10.0/index.html#sec-notational-conventions).
 
 ---
 
