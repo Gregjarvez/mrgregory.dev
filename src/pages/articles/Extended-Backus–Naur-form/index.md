@@ -28,7 +28,7 @@ How ? [**EBNF**](https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form
 ### What is EBNF
 **EBNF** stands for **Extended Backus-Naur form**, a metasyntax notation for encoding grammars intended for human consumption. It is a non-strict superset of
 [BNF](https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form). _For the pharmacist out there, no it is not the British National Formulary_. I digress.
-**EBNF** expresses grammar as a series of terminal and non-terminal symbols that are link either by sequencing or choice. Think of terminal symbols as `alphabets`, and `punctuation marks`, 
+**EBNF** expresses grammar as a series of terminal and non-terminal symbols that are linked either by sequencing or choice. Think of terminal symbols as `alphabets`, and `punctuation marks`, 
 whereas a phrase constitutes a non-terminal symbol which can be further broken down into terminal symbols.
 Want to explore the world of production rules and context-free grammar ? [start here](https://en.wikipedia.org/wiki/Context-free_grammar).
 
