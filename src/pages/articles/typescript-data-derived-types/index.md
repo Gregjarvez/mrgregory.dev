@@ -225,7 +225,7 @@ type Values = Person[keyof Person]; // string | number | boolean
 We will see a few more use cases of `keyof` in the next section while we discuss `typeof`
 
 ### Typeof operator
-The typeof keyword can be used as an expression or in a type query. When used in an expression, 
+The typeof keyword can be used in an expression or in a type query. When used in an expression, 
 the type of the expression will be a string thus the string primitive type of the evaluation of the expression.
 The dual and more useful of this is `type querying` with `typeof` which we will see a bit later.
 
@@ -373,13 +373,13 @@ declare let fs: any;
 const flags =  [
   {action: 'delete', files: [ 'Pedro.txt', 'Sharkey.txt' ] },
   {action: 'create', file: 'Dan.txt' },
-]as const;
+] as const;
 
 for (const flag of flags) {
   if(flag.action === 'create') {
       // sweet sweet narrowing
       fs.writeFileSync(flag.file)
-      fs.writeFileSync(flag.files) // Error
+      fs.writeFileSync(flag.files) // Error, Did you mean 'files'.
    }
   }
 }
