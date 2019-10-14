@@ -4,7 +4,7 @@ date: '2019-10-14T08:10:26.295Z'
 layout: post
 draft: false
 category: 'Web development'
-path: '/posts/keyof-typeof-capturing-types/'
+path: '/posts/keyof-typeof-and-capturing-types/'
 description: 'Derive typescript types from literal values.'
 tags:
   - 'Web development'
@@ -17,9 +17,10 @@ tags:
 _This article will introduce you to typescript's **keyof**, **typeof** keywords and the **const** assertion type.
 How to use these operators in day to day programming with typescript._
 
-Typescript provides a great set of [utilites types](https://www.typescriptlang.org/docs/handbook/utility-types.html), operators and keywords that makes the
-lives of developers easier ✅. In this article, we will take a look at and understand the `typeof` operator, index type query operator `keyof`,
-`const` assertions and how to capture mostly object types from plain javascript literal values.
+Typescript provides a great set of [utility types](https://www.typescriptlang.org/docs/handbook/utility-types.html), 
+operators and keywords that makes the lives of developers easier ✅. 
+In this article, we will take a look at and understand the `typeof` operator, index type query operator `keyof`,
+`const` assertions and how to capture types from plain javascript literal values.
 
 ### keyof operator
 
@@ -33,8 +34,8 @@ P = Type
 ```
 
 An indexed type query of type `P` or `keyof P` produces a union of property names for type T. 
-It is good to know how all [types](https://github.com/Microsoft/TypeScript/blob/master/doc/spec.md#3-types) behave and the yielded union when queried.
-Lets peak it 😉 to avoid surprises.
+It is good to know how all [types](https://github.com/Microsoft/TypeScript/blob/master/doc/spec.md#3-types) 
+behave and the yielded union when queried. Let's take a peek at it, to avoid any surprises.
 
 ```typescript
 // Predefined Types
@@ -82,9 +83,8 @@ The [typescript playground](https://github.com/Microsoft/TypeScript/blob/master/
 
 **Usages**
 <br />
-Correct use of `keyof` can reduce repetitive type definitions and make for elegant type definitions 🌹. If you're familiar with typescript's utility types,
-You would have come across [`Omit`](https://www.typescriptlang.org/docs/handbook/utility-types.html#omit). We won't discuss what it does. But here is the
-definition from `lib.es5.d.ts`;
+Correct use of `keyof` can reduce repetitive type definitions and make for elegant type definitions 🌹. 
+If you're familiar with typescript's utility types, you would have come across [`Omit`](https://www.typescriptlang.org/docs/handbook/utility-types.html#omit). We won't discuss what it does. But here is the definition from `lib.es5.d.ts`;
 
 ```typescript
 type Omit<T, K extends keyof any> = Pick<T, Exclude<keyof T, K>>;
@@ -142,7 +142,7 @@ isMatch({ url: 'https://mrgregory.dev/users' }, '/users'); // Okay we are friend
 Imagine having to type all the other property names and respective values to make this possible, **keyof** to the rescue.
 
 If you are unfamiliar with `&`, it is called the [intersection type](https://github.com/Microsoft/TypeScript/blob/master/doc/spec.md#35-intersection-types) operator, say `object.assign()` 😄.
-`AxiosRequestConfig[property]` spooky ey ? This is call [indexed accessed query or lookup type](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-1.html#example-1),
+`AxiosRequestConfig[property]` spooky ey ? This is call [indexed access or lookup types](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-1.html#example-1),
 similar to querying an object literal, it returns the property value. We will dissect this further down. Stay put.
 
 **Let's look at another example.**
@@ -225,9 +225,8 @@ type Values = Person[keyof Person]; // string | number | boolean
 We will see a few more use cases of `keyof` in the next section while we discuss `typeof`
 
 ### Typeof operator
-
-The `typeof` operator typically precedes an operand either in an expression or a `type query`. In an expression,  the identity,
-if not explicitly typed, has an implicit type "string". Thus the string primitive type of the evaluation of the expression.
+The typeof keyword can be used as an expression or in a type query. When used in an expression, 
+the type of the expression will be a string thus the string primitive type of the evaluation of the expression.
 The dual and more useful of this is `type querying` with `typeof` which we will see a bit later.
 
 ```typescript
@@ -285,7 +284,7 @@ const defaultFormFieldValues: FormFields = {
 const defaultFieldErrors = { //.... }
 ```
 
-What we have done here is introduced more maintenance work. If I added a new field to our stunning form, I'd have to remember to update
+What we have done here is introduced more maintenance work. If I added a new field to our form, I'd have to remember to update
 all defined types and interfaces ☹️. Let's do better with `type querying`.
 
 ```typescript
