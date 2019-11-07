@@ -15,11 +15,16 @@ function PostTemplate({
 }) {
   const { title: postTitle, description: postDescription } = post.frontmatter;
   const description = postDescription !== null ? postDescription : subtitle;
+  const ogImage = post.frontmatter.featuredImage.publicURL;
 
   return (
     <Layout>
       <div>
-        <SEO title={`${postTitle} - ${title}`} description={description} />
+        <SEO
+          image={ogImage}
+          description={description}
+          title={`${postTitle} - ${title}`}
+        />
         <PostTemplateDetails data={data} />
       </div>
     </Layout>
@@ -55,6 +60,9 @@ export const pageQuery = graphql`
         tags
         date
         description
+        featuredImage {
+          publicURL
+        }
       }
     }
   }
