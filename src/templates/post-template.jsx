@@ -15,7 +15,8 @@ function PostTemplate({
 }) {
   const { title: postTitle, description: postDescription } = post.frontmatter;
   const description = postDescription !== null ? postDescription : subtitle;
-  const ogImage = post.frontmatter.featuredImage.publicURL;
+  const ogImage =
+    post.frontmatter.featuredImage && post.frontmatter.featuredImage.publicURL;
 
   return (
     <Layout>
