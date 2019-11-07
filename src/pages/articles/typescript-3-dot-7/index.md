@@ -14,51 +14,47 @@ tags:
 
 ![Typescript playground](./hero.jpg)
 
-_Typescript recently released version 3.7 which provides support for anticipated features such as
-Optional chaining and Nullish Coalescing along with tasty ts improvements and features. Here is a summary of the juicy bits._
+_Typescript recently released version 3.7 which provides support for anticipated features such as the
+Optional chaining and Nullish Coalescing operators, along with tasty improvements and features.
+Here is a summary of the juicy bits._
 
 If you are unfamiliar with [typescript](https://github.com/microsoft/TypeScript), it is basically type-safe javascript.
-A feature complete version was recently released and along with this release came some of the most requested features. Here is all you need to know
-about the most interesting part of the beta release.
+A feature complete version was recently released and along with this release came some of the most requested features.
+Here is all you need to know about biasedly 😛 the most interesting part of the recent release.
 
 ### Optional chaining operator
 
-Optional chaining is a long awaited feature. This language feature was proposed almost 3 years ago and is finally here.
-Up until now, the logical operator `&&` has remaining a popular way to "short circuit" code execution. When accessing property values
-buried deep, there is usually a need to check if the value exist before chaining on. Here is an example
+Optional chaining is a long awaited feature. It was proposed almost 3 years ago and is finally officially supported by typescript.
+When accessing object property values buried deep, there is usually a need to check if the value exist before chaining on.
+This is also true for some of the standard language APIs. The logical operator `&&` has remained a popular way to "short circuit"
+code execution in conditional statements. Despite its verbosity, it works great in most cases.
 
 ```typescript
+declare var accounts;
 declare var axiosError;
 
-if (axiosError && axiosError.response && axiosError.response.status === 404) {
-}
+const didError =
+  axiosError && axiosError.response && axiosError.response.status === 404;
 
-declare var accounts;
-
-const account = accounts.find(a => a.hasTransactions); // Possibly returns undefined
-const transactionId =
-  account && account.transactions && account.transactions.transactionId;
+const transaction =
+  accounts &&
+  accounts.transactions &&
+  accounts.transactions.find(a => !a.isPending); //😬 
 ```
 
-The logical operator `&&` is used to terminate the execute as soon a falsy value (0, undefined, null, "") is encountered.
-Meet the **optional chaining operator** `?.`. Similarly, it short circuits and returns undefined when a property value is either **null**
-or **undefined**. Note empty strings and 0 are valid operands for this operator ⚠️.
+The logical operator `&&` is used to terminate the execute as soon a falsy value (0, undefined, null, "", NaN) is encountered.
+Meet the **optional chaining operator** `?.`. Similarly, it short circuits the chain of property accesses and returns `undefined` when a left-hand operand is either 
+**null** or **undefined**. Note empty strings and 0 are valid operands for this operator ⚠️.
 Okay, here is the same code above using optional chaining operator.
 
 ```typescript
+declare var accounts;
 declare var axiosError;
 
-if(axiosError?.response?.status === 404)
-  history.pushState(null, null, "https://mrgregory.dev/404")
-
-declare var accounts;
-
-const account = accounts.find(a => a.hasTransactions); // Possibly returns undefined
-const transactionsId = account?.transactions?.transactionId
+const didError = axiosError?.response?.status === 404
+const transaction =  accounts?.transactions?.find(a => !a.isPending); // Hello there gorgeous 😄.
 ```
-
-All the conditional branches out of sight ! Handy isn't it ?.
-The typescript playground is a great place to see the transpiled output.
+All the conditional branches and verbosity is  out of sight ! Handy isn't it ?.
 
 ```javascript
 // Transpiled output.
@@ -70,23 +66,16 @@ const account = {};
 const merchant = account === null || account === void 0 ? void 0 : _a.merchant;
 ```
 
-Now that we've seen how it works. Lets see a few variation of how it is typically used.
-Here is a summary,
+Now that we've seen how the operator works, let's see the semantics.
 
-```typescript
-declare var tween;
-
-tween?.config.colors?.[0].setHue?.(60).result
-```
-
-**Optional property access**
-This is described in the example above.
+**Optional property access**<br />
+Allows property access if the operand on the left-side of the the operator is not `null` or `undefined`.
 
 ```javascript
 const transactionId = account?.transactions?.transactionsId;
 ```
 
-**Optional element access**
+**Optional element access** <br />
 This is similar to _optional property access_ but allows dynamic property access.
 
 ```typescript
@@ -95,7 +84,7 @@ declare var todos;
 const todo = todos?.[0];
 ```
 
-**Optional call**
+**Optional call** <br />
 This is a variation of optional property access for nullable/undefined methods;
 
 ```typescript
@@ -104,13 +93,33 @@ function getIterator (arg?: any[]) {
 }
 ```
 
-I urge you to [try these out](./https://www.typescriptlang.org/play/index.html)
-and see the transpiled output of these example for clarity ! 😀.
+**Short-circuiting**
+Because the chain is terminated when the expression on the left-hand side evaluates to `null` or `undefined`, we are able to do this.
+Following expression is not executed.
+
+```typescript
+declare var source;
+declare var next: number;
+
+source?.[next++]  // next is not incremented if source is `undefined` or `null`
+```
+
+**Stacking**
+Finally, the semantics above can be utilised in a single property access chain. Below we see the use of
+_optional property access_, _optional elements access_ and _optional call_ in a single chain expression.
+
+```typescript
+declare var tween;
+
+tween?.config.colors?.[0].setHue?.(60).result
+```
+
+I urge you to try these out on the typescript [playground](./https://www.typescriptlang.org/play/index.html)
+and see the transpiled output of these examples for completeness ! 😀.
 
 ### Nullish Coalescing
-
-The nullish coalescing operator `??` is the a complementary operator of optional chaining operator.
-Similar to `||` logical operator, It provides a way to fallback. The difference here is that,
+The nullish coalescing operator `??` is a complementary operator to the optional chaining operator.
+Similar to `||` logical operator, It provides a way to "fallback". The difference here is that,
 it only falls back when the operand is either `null` or `undefined`, whereas `||` will do for falsy values (`NaN`, `false`, `0`, `''`).
 
 **Before**
@@ -124,13 +133,13 @@ const tween = {
   },
 };
 
-const multiplier = tween.config.animation.multiplier || 1000; // multiplier falls back to 2
+const multiplier = tween.config.animation.multiplier || 2; // multiplier falls back to 2
 const timing = tween.config.animation.timing || 'linear'; // timing falls back to 'linear'
 const delay = tween.config.animation.delay || 1000; // delay falls back to 1000 😬⚠️.
 const hidden = tween.config.animation.startHidden || true; //  😬⚠️.
 ```
 
-We risk property valid/present property values falling back to something else. Nullish coalescing is especially
+We risk valid/present property values falling back to something else. Nullish coalescing is especially
 useful where we expect common cases of `null` or `undefined`.
 
 **After**
@@ -156,10 +165,10 @@ const hidden = tween.config.animation.startHidden || true; //hidden: false ✅.
 **Use with optional chaining**
 
 ```typescript
-const node = document.querySelector('#article')
-const dataTestId = node?.getAttribute("data-testid") ?? 'raw-article';
+declare var player
+const playerScore = player?.score ?? 1; // playerScore is 1 if score has value  null or undefined. 0 is a valid score !.
 ```
 
-There were other tasty treats in this release such us Assertion Functions, Better Support for never-Returning Functions,
-Recursive Type Aliases, Uncalled Function checks etc. [See](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-7.html) 
-for what is new.
+There are other tasty treats in this release such as Assertion Functions, Better Support for never-Returning Functions,
+Recursive Type Aliases, Uncalled Function checks etc. [See](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-7.html)
+for what is new. Until next time stay curious.
