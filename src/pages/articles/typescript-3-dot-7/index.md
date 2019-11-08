@@ -39,11 +39,11 @@ const didError =
 const transaction =
   accounts &&
   accounts.transactions &&
-  accounts.transactions.find(a => !a.isPending); //😬 
+  accounts.transactions.find(a => !a.isPending); //😬
 ```
 
 The logical operator `&&` is used to terminate the execute as soon a falsy value (0, undefined, null, "", NaN) is encountered.
-Meet the **optional chaining operator** `?.`. Similarly, it short circuits the chain of property accesses and returns `undefined` when a left-hand operand is either 
+Meet the **optional chaining operator** `?.`. Similarly, it short circuits the chain of property accesses and returns `undefined` when a left-hand operand is either
 **null** or **undefined**. Note empty strings and 0 are valid operands for this operator ⚠️.
 Okay, here is the same code above using optional chaining operator.
 
@@ -54,12 +54,12 @@ declare var axiosError;
 const didError = axiosError?.response?.status === 404
 const transaction =  accounts?.transactions?.find(a => !a.isPending); // Hello there gorgeous 😄.
 ```
-All the conditional branches and verbosity is  out of sight ! Handy isn't it ?.
+
+All the conditional branches and verbosity are out of sight ! Handy isn't it ?.
 
 ```javascript
 // Transpiled output.
 // NOTE that it only checks whether or not the property value is null or undefined (void 0)
-// Returns undefined if value is non-existent.
 const account = {};
 
 // account?.merchant
@@ -118,6 +118,7 @@ I urge you to try these out on the typescript [playground](./https://www.typescr
 and see the transpiled output of these examples for completeness ! 😀.
 
 ### Nullish Coalescing
+
 The nullish coalescing operator `??` is a complementary operator to the optional chaining operator.
 Similar to `||` logical operator, It provides a way to "fallback". The difference here is that,
 it only falls back when the operand is either `null` or `undefined`, whereas `||` will do for falsy values (`NaN`, `false`, `0`, `''`).
