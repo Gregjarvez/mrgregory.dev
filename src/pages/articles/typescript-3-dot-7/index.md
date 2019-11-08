@@ -93,9 +93,9 @@ function getIterator (arg?: any[]) {
 }
 ```
 
-**Short-circuiting**
+**Short-circuiting** <br />
 Because the chain is terminated when the expression on the left-hand side evaluates to `null` or `undefined`, we are able to do this.
-Following expression is not executed.
+The right hand side expression is not evaluated.
 
 ```typescript
 declare var source;
@@ -104,9 +104,9 @@ declare var next: number;
 source?.[next++]  // next is not incremented if source is `undefined` or `null`
 ```
 
-**Stacking**
+**Stacking** <br />
 Finally, the semantics above can be utilised in a single property access chain. Below we see the use of
-_optional property access_, _optional elements access_ and _optional call_ in a single chain expression.
+_optional property access_, _optional elements access_ and _optional call_ in a single property accesses expression.
 
 ```typescript
 declare var tween;
