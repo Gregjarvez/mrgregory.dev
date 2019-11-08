@@ -7,7 +7,7 @@ import PostTemplateDetails from '../components/PostTemplateDetails';
 function PostTemplate({
   data: {
     site: {
-      siteMetadata: { title, subtitle },
+      siteMetadata: { title, subtitle, url },
     },
     markdownRemark: post,
   },
@@ -15,14 +15,19 @@ function PostTemplate({
 }) {
   const { title: postTitle, description: postDescription } = post.frontmatter;
   const description = postDescription !== null ? postDescription : subtitle;
-  const ogImage =
-    post.frontmatter.featuredImage && post.frontmatter.featuredImage.publicURL;
+  const pageUrl = [url, data.markdownRemark.fields.slug].join('');
+
+  const seoImage = [
+    url,
+    post.frontmatter.featuredImage && post.frontmatter.featuredImage.publicURL,
+  ].join('');
 
   return (
     <Layout>
       <div>
         <SEO
-          image={ogImage}
+          url={pageUrl}
+          image={seoImage}
           description={description}
           title={`${postTitle} - ${title}`}
         />
