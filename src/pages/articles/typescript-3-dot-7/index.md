@@ -26,7 +26,7 @@ Here is all you need to know about biasedly 😛 the most interesting part of th
 
 Optional chaining is a long awaited feature. It was proposed almost 3 years ago and is finally officially supported by typescript.
 When accessing object property values buried deep, there is usually a need to check if the value exist before chaining on.
-This is also true for some of the standard language APIs. The logical operator `&&` has remained a popular way to "short circuit"
+This is also true for the return values some of the standard language APIs as well. The logical operator `&&` has remained a popular way to "short circuit"
 code execution in conditional statements. Despite its verbosity, it works great in most cases.
 
 ```typescript
@@ -146,6 +146,7 @@ useful where we expect common cases of `null` or `undefined`.
 
 ```typescript
 const tween = {
+
   type: 'Mother ship',
   config: {
     colors: [],
