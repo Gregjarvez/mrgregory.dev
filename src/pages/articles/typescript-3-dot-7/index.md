@@ -69,14 +69,14 @@ const merchant = account === null || account === void 0 ? void 0 : _a.merchant;
 Now that we've seen how the operator works, let's see the semantics.
 
 **Optional property access**<br />
-Allows property access if the operand on the left-side of the the operator is not `null` or `undefined`.
+This is the base usage. Allows property access if the operand on the left-side of the the operator is not `null` or `undefined`.
 
 ```javascript
 const transactionId = account?.transactions?.transactionsId;
 ```
 
 **Optional element access** <br />
-This is similar to _optional property access_ but allows dynamic property access.
+This is similar to _optional property access_ but for dynamic property access.
 
 ```typescript
 declare var todos;
