@@ -2,7 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
-const SEO = ({ meta, lang, description, title }) => {
+const SEO = ({ meta, lang, description, title, image }) => {
   const { site } = useStaticQuery(
     graphql`
       query SEO {
@@ -61,6 +61,10 @@ const SEO = ({ meta, lang, description, title }) => {
           name: 'twitter:site',
           content: `@${site.siteMetadata.author.twitterUserName}`,
         },
+        image && {
+          name: 'og:image',
+          content: image,
+        },
         {
           name: 'twitter:card',
           content: 'summary',
@@ -73,7 +77,13 @@ const SEO = ({ meta, lang, description, title }) => {
           name: 'twitter:description',
           content: metaDescription,
         },
-      ].concat(meta)}
+        image && {
+          name: 'twitter:image',
+          content: image,
+        },
+      ]
+        .concat(meta)
+        .filter(Boolean)}
     />
   );
 };
