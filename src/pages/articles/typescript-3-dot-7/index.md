@@ -1,10 +1,10 @@
 ---
-title: Typescript 3.7 The juicy bit
+title: Typescript 3.7 The juicy bits
 date: '2019-11-06T21:53:17.113Z'
 layout: post
 draft: false
 category: 'Web development'
-path: '/posts/typescript-3-7'
+path: '/posts/typescript-3-7-juicy-bits'
 description: 'Optional chaining, Nullish Coalescing support in typescript 3.7'
 featuredImage: ./hero.jpg
 tags:
