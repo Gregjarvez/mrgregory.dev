@@ -114,7 +114,7 @@ declare var tween;
 tween?.config.colors?.[0].setHue?.(60).result
 ```
 
-I urge you to try these out on the typescript [playground](./https://www.typescriptlang.org/play/index.html)
+I urge you to try these out on the typescript [playground](https://www.typescriptlang.org/play/index.html)
 and see the transpiled output of these examples for completeness ! 😀.
 
 ### Nullish Coalescing
