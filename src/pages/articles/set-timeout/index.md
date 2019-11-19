@@ -17,7 +17,7 @@ _Javascript setTimeout function takes more than just 2 arguments but not a lot o
 This article will reintroduce you to javascript's setTimeout function and what variadic functions are._
 
 If you have conjured any form of javascript timer or done any asynchronous programming, you would have come across the setTimeout function.
-Typically it takes a function as the first argument and timeout number as the second to say the least. Often, this signature
+Typically, it takes a function as the first argument and timeout number as the second to say the least. Often, this signature
 is the one you see the most. So far so good.
 
 Here is what I just said in code.
@@ -29,7 +29,7 @@ setTimeout(() => window.scrollTo(0, 0), 2000);
 Okay, I said earlier that setTimeout was variadic. So what exactly is a **variadic function**.
 A **variadic function** is a function that takes an indefinite number of arguments. Yeah that is it 😅. There are some variadic functions in javascript,
 A lot of which you use every 😄. `console.log`, `Array.of`, `Array.concat`, `Object.assign`, and of course `setTimeout` to name a few.
-If you had to write a signature for this type of function it would look like this.
+If you had to write a signature for this type of function it would look something like this.
 
 ```typescript
 declare function iAmVariadic(...args: unknown[]): unknown;
