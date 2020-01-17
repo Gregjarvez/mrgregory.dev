@@ -14,18 +14,21 @@ tags:
 ![Sorting](./hero.jpg)
 
 _If you have programmed in javascript, chance's are you would have come across Array.prototype.sort. Sometimes it does what you 
-want, other times it does what it wants. In this article we will try to understand `Array.prototype.sort` beyond 1 - 9._ 
+want, other times it does what it wants. In this article we will try to understand Array.prototype.sort beyond 1 - 9._ 
 
 If you have had to use this method, like me you can recall having to tweak operators to do what you want.
-Well, try `a + b`️ first (which never does what you want), then `a - b`, occasionally an explicit ternary 😄.
+Well, try `a + b` first (which never does what you want), then `a - b`, occasionally an explicit ternary 😄.
  
 It feels very intuitive and seemingly simple to use but not quite straight-forward to understand. Here is the signature;
 
 ```typescript
-type sort = (compareFn?: (a: T, b: T) => number) => this;
+const array = [1,4,3,2,7]
+array.sort((a, b) => a - b);
 ```
+- a - first element, or left hand side element
+- b - second element, or right hand side element
 
-The sort function take a comparator `compareFn` which is expected to return 
+The comparator `(a,b) => a - b` is expected to return 
  - A negative value if  `a < b`
  - A positive value if  `a > b`
  - Zero if the first and second arguments are equal. Thus `a = b` 
@@ -93,5 +96,5 @@ console.log(sorted) // [1, 2, 3, 5, undefined]
 
 
 ### Take away
-To achieve a more deterministic or consistent result. Always provide a compare function !
+To achieve a more deterministic or consistent result, always provide a compare function!
 Until next time, stay curious ! 
