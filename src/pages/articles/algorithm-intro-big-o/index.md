@@ -5,7 +5,7 @@ layout: post
 draft: true
 category: 'Computer Science'
 path: '/posts/algorithms-introduction'
-description: 'Introduction to algorithms and data structures for web developer'
+description: 'Algorithms and data structures for web developers - Big O'
 featuredImage: ./hero.jpg
 tags:
   - 'Web development'
