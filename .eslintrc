@@ -8,7 +8,7 @@
   "rules": {
     "prettier/prettier": "error",
     "arrow-parens": ["error", "as-needed"],
-    "comma-dangle": ["error", "always-multiline"],
+    "comma-dangle": "off",
     "object-curly-newline": "off",
     "function-paren-newline": "off",
     "no-console": "off",

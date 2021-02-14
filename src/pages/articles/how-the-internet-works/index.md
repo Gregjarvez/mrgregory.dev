@@ -8,7 +8,7 @@ path: '/posts/components-of-the-internet-and-how-it-works'
 description: 'A high level overview of how the internet works, and the respective infrastructure that makes it all tick'
 featuredImage: ./hero.jpg
 tags:
-  - 'Software development'
+  - 'Software Development'
   - 'Backend Development'
 ---
 

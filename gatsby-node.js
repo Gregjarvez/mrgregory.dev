@@ -37,7 +37,7 @@ exports.createPages = ({ graphql, actions }) => {
     `).then(result => {
       if (result.errors) {
         console.log(result.errors);
-        reject(result.errors);
+        return reject(result.errors);
       }
 
       _.each(result.data.allMarkdownRemark.edges, edge => {
@@ -86,7 +86,7 @@ exports.createPages = ({ graphql, actions }) => {
         }
       });
 
-      resolve();
+      return resolve();
     });
   });
 };
