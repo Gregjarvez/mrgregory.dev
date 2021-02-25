@@ -14,8 +14,8 @@ tags:
 
 I have been a zsh user for a while now, for those who do not know zsh, it is a unix shell and command language based on bash with improvements.
 Recently, I found myself with a very slow terminal. It took a good 3 to 5 seconds to launch a new terminal session in any directory, which got
-increasingly annoying. The major culprit was a bash script I nicked of stackoverflow 😅 (you know you do it too). I decided to remove that piece of
-code, write my own (hopefully a simple and improved version of it).
+increasingly annoying. The major culprit was a bash script I nicked of stackoverflow 😅 (you know you do it too) to switch node versions automatically.
+I decided to remove that piece of code, write my own (hopefully a simpler and improved version).
 
 ### Let's modify the zsh profile
 
@@ -23,7 +23,6 @@ code, write my own (hopefully a simple and improved version of it).
 open ~/.zshrc
 ```
 To begin, open your zshrc file located here `~/.zshrc` (this is platform dependent), in your favourite editor.
-
 We will be tapping into zsh hook functions to make this work, specifically `chpwd`, which is executed whenever the current working directory is
 changed.
 

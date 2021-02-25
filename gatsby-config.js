@@ -130,10 +130,6 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: { trackingId: 'UA-147229191-1' },
-    },
-    {
       resolve: 'gatsby-plugin-google-fonts',
       options: {
         fonts: [
